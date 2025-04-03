@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
@@ -17,6 +19,16 @@ import java.util.Locale;
 public class Dates {
 
 	public static void main(String[] args) {
+		LocalDate date = LocalDate.of(2019, 1, 1);
+		LocalTime time = LocalTime.of(0, 0);
+		ZoneId india = ZoneId.of("Asia/Kolkata");
+		ZonedDateTime zIndia = ZonedDateTime.of(date, time, india);
+		ZoneId us = ZoneId.of("America/Los_Angeles");
+		ZonedDateTime zUS =  zIndia.withZoneSameLocal(us);
+		System.out.println(Duration.between(zIndia, zUS)); 
+	}
+	
+	public static void testLocales() {
 		DateFormat french = DateFormat.getDateInstance(DateFormat.SHORT, Locale.FRENCH);
 		DateFormat us = DateFormat.getDateInstance(DateFormat.SHORT, Locale.US);
 		DateFormat def = DateFormat.getDateInstance(DateFormat.SHORT, Locale.getDefault());
