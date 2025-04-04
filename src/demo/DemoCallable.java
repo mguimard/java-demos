@@ -41,6 +41,29 @@ class FournisseurDePainChoc implements Callable<PainAuChocolat> {
 
 public class DemoCallable {
 
+	public static void main2(String[] args) {
+		ExecutorService es = Executors.newFixedThreadPool(10);
+
+		es.submit(() -> 1234);
+
+		es.submit(new Callable<Integer>() {
+			public Integer call() throws Exception {
+				return 1234;
+			};
+		});
+
+		es.submit(() -> {
+			System.out.println("coucou");
+		});
+
+		es.submit(new Runnable() {
+			public void run() {
+				System.out.println("coucou");
+			};
+		});
+
+	}
+
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		ExecutorService es = Executors.newFixedThreadPool(10);
 
