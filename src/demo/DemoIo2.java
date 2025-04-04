@@ -23,7 +23,7 @@ class MyAnimal implements Serializable {
 	String name = "Felix";
 }
 
-public class Temp {
+public class DemoIo2 {
 	static String FOLDER = "/tmp";
 	static String PATH = "/tmp/myfile.txt";
 
